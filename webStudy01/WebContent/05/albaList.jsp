@@ -22,7 +22,7 @@
 	</thead>
 	
 	<tbody>
-		<%
+		<%-- <% 
 			for(Entry<String, AlbasengVO> entry : SimpleFormProcessServlet_SEM.albasengs.entrySet()){
 				%>
 				<tr>
@@ -33,7 +33,7 @@
 				</tr>
 				<%
 			}
-		%>
+		%> --%>
 	</tbody>
 	
 </table>
