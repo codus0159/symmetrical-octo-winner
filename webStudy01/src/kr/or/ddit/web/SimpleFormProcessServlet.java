@@ -37,7 +37,7 @@ public class SimpleFormProcessServlet extends HttpServlet {
 		licenseMap.put("L005", "SQLD");
 		licenseMap.put("L006", "SQLP");
 	}
-	public Map<String, AlbasengVO> albasengs  = new LinkedHashMap<>();
+	public static Map<String, AlbasengVO> albasengs  = new LinkedHashMap<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

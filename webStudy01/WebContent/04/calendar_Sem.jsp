@@ -29,10 +29,10 @@
 </style>
 <script type = "text/javascript">
    function eventHandler(year,month){
-      var form = document.forms[0];
+      var form = document.calForm;
       if((year && month)|| month == 0){
-	      form.year.value = year;
-	      form.month.value = month;
+         form.year.value = year;
+         form.month.value = month;
       }
       form.submit();
       return false;
@@ -41,7 +41,7 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+   request.setCharacterEncoding("UTF-8");
    String yearStr = request.getParameter("year");
    String monthStr = request.getParameter("month");
    String language = request.getParameter("language");
@@ -80,13 +80,12 @@
    
    Locale[] locales = Locale.getAvailableLocales();
 %>
-<form>
+<form name = "calForm" method = "post">
+<input type="hidden" name = "command" value = "calendar"/>
 <h4>
 <a href="javascript:eventHandler(<%=beforeYear%>,<%=beforeMonth%>)">이전달</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type = "number" name = "year" value = "<%=currentYear %>" 
-   onblur="eventHandler();"
-/>년
+<input type = "number" name = "year" value = "<%=currentYear %>" onblur="eventHandler();"/>년
 <select name = "month" onchange = "eventHandler(<%=beforeYear%>,<%=beforeMonth%>);">
    <%
       String[] monthStrings = symbols.getShortMonths();

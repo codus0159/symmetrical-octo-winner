@@ -15,18 +15,21 @@ import kr.or.ddit.web.calculate.Mime;
 import kr.or.ddit.web.calculate.Operator;
 
 public class CalculateServlet extends HttpServlet {
+	
 	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init();
-		ServletContext application = getServletContext();
-		String contentFolder = application.getInitParameter("contentFolder");
-		File folder = new File(contentFolder);
-		application.setAttribute("contentFolder", folder);
-		System.out.println(getClass().getSimpleName()+ "");
-	}
+	   public void init(ServletConfig config) throws ServletException {
+	      super.init(config);
+	      ServletContext application = getServletContext();
+	      String contentFolder = application.getInitParameter("contentFolder");
+	      File folder = new File(contentFolder);
+	      application.setAttribute("contentFolder", folder);
+	      System.out.println(getClass().getSimpleName()+" 초기화");
+	   }
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
 		
 		// 파라미터 확보 (입력태그의 name 속성값으로 이름 결정)
 		String leftOpStr = req.getParameter("leftOp");
